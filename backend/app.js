@@ -7,7 +7,7 @@ const userRoutes = require("./routes/user");
 const sauceRoutes = require("./routes/sauce");
 
 mongoose
-  .connect("mongodb+srv://crescendo29:Plouneventer29@cluster0.kcmjs.mongodb.net/sopekocko?retryWrites=true&w=majority", {
+  .connect("mongodb+srv://@cluster0.kcmjs.mongodb.net/sopekocko?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
