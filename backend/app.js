@@ -1,5 +1,4 @@
 const express = require("express");
-const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const path = require("path");
 
@@ -10,6 +9,7 @@ mongoose
   .connect("mongodb+srv://openclassrooms:formation@cluster0.kcmjs.mongodb.net/sopekocko?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    useCreateIndex: true,
   })
   .then(() => console.log("Connexion à MongoDB réussie !"))
   .catch((err) => console.log(err));
@@ -23,7 +23,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(bodyParser.json());
+app.use(express.json());
 
 app.use("/images", express.static(path.join(__dirname, "images")));
 app.use("/api/auth/", userRoutes);
